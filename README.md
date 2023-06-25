@@ -44,3 +44,13 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## yarn eslint --fix ./src/** --no-error-on-unmatched-pattern
+ESLintを実行します。
+コーディング規約や構文エラーをチェックします。
+
+## yarn prettier --check ./src
+prettierを実行し、フォーマットをチェックします。
+
+## npx prettier --write ./src
+prettierを実行し、フォーマットを修正します。
