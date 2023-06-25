@@ -52,5 +52,5 @@ ESLintを実行します。
 ## yarn prettier --check ./src
 prettierを実行し、フォーマットをチェックします。
 
-## npx prettier --write ./src
+## yarn prettier --write ./src
 prettierを実行し、フォーマットを修正します。
