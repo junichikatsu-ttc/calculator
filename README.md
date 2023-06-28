@@ -56,3 +56,4 @@ prettierを実行し、フォーマットをチェックします。
 prettierを実行し、フォーマットを修正します。
 
 # members
+- Lucas
