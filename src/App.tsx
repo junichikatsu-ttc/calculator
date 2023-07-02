@@ -1,21 +1,33 @@
 import React, { useState } from 'react';
 import { Button } from './components/Button';
 import { PlusButton } from './components/PlusButton';
+import sum from './utils/sum';
 
 const App: React.FunctionComponent = () => {
-  const [left, setLeft] = useState('');
-  const [right, setRight] = useState('');
+  const [value1, setValue1] = useState('');
+  const [value2, setValue2] = useState('');
   const [ope, setOpe] = useState('');
+  const [answer, setAnswer] = useState(-1);
   
   const onClick = (key:string):void=>{
     if(!Number.isNaN(Number(key))){
 
+      if(ope === '='){
+        setValue1('');
+        setValue2('');
+        setOpe('');
+        setAnswer(-1);
+      }
+
       if(ope === '+'){
-        setRight(right+key);
+        setValue2(prev=>prev+key);
       }else{
-        setLeft(left+key);
+        setValue1(prev=>prev+key);
       }
     } else if(key=== '+'){
+      setOpe(key);
+    } else if(key=== '='){
+      setAnswer(sum(Number(value1),Number(value2)));
       setOpe(key);
     }
   }
@@ -23,10 +35,13 @@ const App: React.FunctionComponent = () => {
     <div className="calc">
       <header>電卓</header>
       <div className="display">
-        {left}
+        {value1}
       </div>
       <div className="display">
-        {right}
+        {value2}
+      </div>
+      <div className="display">
+        {answer !== -1 && answer}
       </div>
       <div className="input">
         <div className="numbers">
@@ -37,7 +52,12 @@ const App: React.FunctionComponent = () => {
           }
         </div>
         <div className="operators">
-          <PlusButton onClick={()=>{ onClick('+'); }} label={'+'}/>
+          {ope==='' && (
+            <PlusButton onClick={()=>{ onClick('+'); }} label={'+'}/>
+          )}
+          {(ope==='+' || ope=== '=') && (
+            <PlusButton onClick={()=>{ onClick('='); }} label={'='}/>
+          )}
         </div>
       </div>
     </div>
