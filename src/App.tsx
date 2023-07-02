@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from './components/Button';
 
 const App: React.FunctionComponent = () => {
+  const [left, setLeft] = useState('');
+  const [right, setRight] = useState('');
+  const [ope, setOpe] = useState('');
+  
   const onClick = (key:string):void=>{
-    console.log(`${key} Button click!`);
+    if(!Number.isNaN(Number(key))){
+
+      if(ope === '+'){
+        setRight(right+key);
+      }else{
+        setLeft(left+key);
+      }
+    } else if(key=== '+'){
+      setOpe(key);
+    }
   }
   return (
     <div className="calc">
       <header>電卓</header>
       <div className="display">
-        {/* 計算結果の表示を実装する */}
+        {left}
+      </div>
+      <div className="display">
+        {right}
       </div>
       <div className="input">
         <div className="numbers">
-          {/* 数字のボタンや「.」、「=」ボタン */}
+          {
+            ['7','8','9','4','5','6','1','2','3','0'].map(el=>(
+              <Button onClick={()=>{ onClick(el); }} label={el} key={el}/>
+            ))
+          }
         </div>
         <div className="operators">
           <Button onClick={()=>{ onClick('+'); }} label={'+'}/>
