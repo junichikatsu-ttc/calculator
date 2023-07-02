@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button } from './components/Button';
+import { PlusButton } from './components/PlusButton';
 
 const App: React.FunctionComponent = () => {
   const [left, setLeft] = useState('');
@@ -36,7 +37,7 @@ const App: React.FunctionComponent = () => {
           }
         </div>
         <div className="operators">
-          <Button onClick={()=>{ onClick('+'); }} label={'+'}/>
+          <PlusButton onClick={()=>{ onClick('+'); }} label={'+'}/>
         </div>
       </div>
     </div>
