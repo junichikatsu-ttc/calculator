@@ -30,7 +30,7 @@ const App: React.FunctionComponent = () => {
       <div className="input">
         <div className="numbers">
           {
-            ['7','8','9','4','5','6','1','2','3','0'].map(el=>(
+            ['1','2','3','4','5','6','7','8','9'].map(el=>(
               <Button onClick={()=>{ onClick(el); }} label={el} key={el}/>
             ))
           }
