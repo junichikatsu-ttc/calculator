@@ -1,6 +1,10 @@
 import React from 'react';
+import { Button } from './components/Button';
 
 const App: React.FunctionComponent = () => {
+  const onClick = (key:string):void=>{
+    console.log(`${key} Button click!`);
+  }
   return (
     <div className="calc">
       <header>電卓</header>
@@ -12,7 +16,7 @@ const App: React.FunctionComponent = () => {
           {/* 数字のボタンや「.」、「=」ボタン */}
         </div>
         <div className="operators">
-          {/* 「+」等のボタンを実装する */}
+          <Button onClick={()=>{ onClick('+'); }} label={'+'}/>
         </div>
       </div>
     </div>
