@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from './components/Button';
+import { PlusButton } from './components/PlusButton';
 
 const App: React.FunctionComponent = () => {
   const [left, setLeft] = useState('');
   const [right, setRight] = useState('');
   const [ope, setOpe] = useState('');
-  
+
   const onClick = (key:string):void=>{
     if(!Number.isNaN(Number(key))){
 
@@ -36,7 +37,7 @@ const App: React.FunctionComponent = () => {
           }
         </div>
         <div className="operators">
-          <Button onClick={()=>{ onClick('+'); }} label={'+'}/>
+          <PlusButton onClick={()=>{ onClick('+'); }} label={'+'}/>
         </div>
       </div>
     </div>
