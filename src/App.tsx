@@ -6,7 +6,7 @@ const App: React.FunctionComponent = () => {
   const [left, setLeft] = useState('');
   const [right, setRight] = useState('');
   const [ope, setOpe] = useState('');
-  
+
   const onClick = (key:string):void=>{
     if(!Number.isNaN(Number(key))){
 
